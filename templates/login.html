@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<form method="post">
+  {% csrf_token %}
+
+  <input type="text" name="username" /><br /><br />
+  <input type="password" name="password" /><br /><br />
+  <input type="submit" name="login" />
+</form>
+
+<a style="text-decoration: none;" href="{% url 'forgot' %}">Forgot Password ?</a>
+
+{%for msg in messages%}
+
+<span style="color: red">{{msg}}</span>
+
+{%endfor%} 
+
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Change Password</h3>
+<form method="post">
+
+    {%csrf_token%}
+
+    <label>Username</label> <input type="text" name="username"><br><br>
+    <input type="submit" name="Save">
+</form>
+
+{%for msg in messages%}
+<span style="color: red">{{msg}}</span>
+
+{%endfor%}
+
+{% endblock content %}

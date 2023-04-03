@@ -1,0 +1,23 @@
+{% load static %}
+
+<h1>My Blog</h1>
+<img src="{% static 'images/blog.png' %}" alt="avr" height="100" />
+
+<a style="text-decoration: none" href="{% url 'create' %}"> + New Post</a> |
+<a style="text-decoration: none" href="{% url 'index' %}">Home</a> |
+{% if request.user.is_authenticated %}
+
+<a style="text-decoration: none" href="{% url 'logout' %}">Logout</a> | 
+{% else %} 
+<a style="text-decoration: none" href="{% url 'register' %}">Register</a> |
+<a style="text-decoration: none" href="{% url 'login' %}">Login</a>
+
+{% endif %} 
+
+{% if request.user.is_authenticated %}
+ <a style="text-decoration: none;" href="{% url 'index' %}">Hello , {{ request.user.username }}</a>
+{% endif %}
+
+<hr />
+{% block content %} 
+{% endblock content %}

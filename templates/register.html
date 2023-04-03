@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<form method="post">
+    {% csrf_token %}
+
+ <label>Username</label>   <input type="text" name="username"><br><br>
+ <label>Email</label>   <input type="email" name="email"><br><br>
+ <label>First name</label>   <input type="text" name="name"><br><br>
+ <label>Password</label> <input type="password" name="password"><br><br>
+ <label>Confirm Password</label>  <input type="password" name="Confirm_password"><br><br>
+      <input type="submit" name="Register"><br>
+</form>
+
+{%for msg in messages%}
+
+   <span style="color: red;">{{msg}}</span>
+
+{%endfor%}
+{% endblock content %}

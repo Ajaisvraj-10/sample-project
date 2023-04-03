@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="post">
+
+    {%csrf_token%}
+
+    <p>Please Enter your OTP</p>
+   Password : <input type="text" name="otp"><br>
+   Confirm Password : <input type="submit" value="verify">
+</form>
+{% endblock content %}
+

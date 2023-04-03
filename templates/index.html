@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<form>
+    <input type="text" name="keyword" placeholder="Search here....">
+    <label>Genre</label>
+    <select name="genre">
+        {% for choice in choices %}
+        <option value="{{choice.0}}">{{choice.1}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Search">
+</form>
+{% for blog in blog %}
+
+
+<h1><a style="text-decoration: none;" href="{% url 'details' blog.id %}">{{blog.tittle}}</a></h1>
+
+
+{% endfor %}
+{% endblock content %}

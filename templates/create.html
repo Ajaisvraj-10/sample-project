@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label> tittle :</label> <input  type="text" name="t"> <br><br>
+    <label>Genre</label>
+    <select name="genre"><br>
+        {% for choice in choices %}
+        <option value="{{choice.0}}">{{choice.1}}</option>
+        {% endfor %}
+    </select>
+    <label> Content :</label><textarea name="c"></textarea><br><br>
+    <input type="file" name="cover_image" accept="image/*"><br><br>
+    <input type="submit" value="Add">
+</form>
+{% endblock content %}
